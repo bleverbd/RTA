@@ -1,28 +1,30 @@
-import Container from "@/components/common/Container";
+import { ImagesProvider } from "@/lib/ImagesProvider";
 import { cn } from "@/lib/utils";
 import { Link, NavLink } from "react-router";
+import { MdOutlineCall } from "react-icons/md";
+import Container from "@/components/common/Container";
+
+
 
 const NavElement = [
-  { path: "/", label: "HOME" },
-  { path: " a", label: "NEW REMIXES" },
-  { path: " b", label: "VIDEOS" },
-  { path: " v", label: "GENRES" },
-  { path: " c", label: "TOP DOWNLOAD" },
-  { path: " d", label: "MEMBERSHIP" },
-  { path: " d", label: "FAVORITES" },
+  { path: "/", label: "হোম" },
+  { path: "/courses", label: "কোর্স" },
+  { path: "/books", label: "বই" },
+  { path: "/notice", label: "নোটিশ" },
+  { path: "/about-us", label: "আমাদের সম্পর্কে" },
 ];
 const NavItem = () => {
   return (
     <ul className="flex gap-8 items-center">
       {NavElement.map((item, index) => (
-        <li key={index} className="text-white font-poppins">
+        <li key={index} className="font-medium text-lg">
           <NavLink
             to={item.path}
             className={({ isActive }) =>
               cn(
-                "font-light   hover:text-white/50 duration-300 transition-all",
+                "duration-300  transition-all hover:text-Primary ",
                 {
-                  "font-bold": isActive,
+                  "font-bold text-Primary underline underline-offset-4": isActive,
                 }
               )
             }
@@ -37,40 +39,44 @@ const NavItem = () => {
 
 const Navbar = () => {
   return (
-    <div className="mt-6 ">
+    <div className="py-2 shadow-md relative z-50 w-full">
       <Container>
-        <div className="relative z-50 w-full" >
-          <div className="px-12 py-4 flex items-center justify-between shadow-md rounded-[24px] bg-[linear-gradient(180deg,_rgba(255,255,255,0.13)_0%,_rgba(153,153,153,0.13)_100%)] ">
-            <Link to="/" className="overflow-hidden ">
-              {/* <img
-                className="w-[118px] h-[56px] object-center"
-                src={ImagesProvider.logo}
-                alt="Logo"
-              /> */}
-            </Link>
+        <div className="flex items-center justify-between">
+          <Link to="/" className="overflow-hidden ">
+            <img
+              className="w-[118px] h-[56px] object-center"
+              src={ImagesProvider.logo}
+              alt="Logo"
+            />
+          </Link>
 
-            <div>
-              <NavItem />
-            </div>
-            <div className="flex gap-4 items-center">
-             
-              <Link
-                to="/log-in"
-                className="font-Poppins transition-all  hover:text-white/50 duration-300  font-semibold text-base text-white"
-              >
-                LOG IN
-              </Link>
-              <Link
-                to="/register"
-                className="font-Poppins transition-all  hover:text-white/50 font-semibold text-base px-4 py-3 text-white rounded-[16px] bg-[linear-gradient(180deg,_rgba(255,_255,_255,_0.13)_0%,_rgba(153,_153,_153,_0.13)_100%)]"
-              >
-                REGISTER
-              </Link>
-            </div>
+          <div>
+            <NavItem />
+          </div>
+          <div className="flex gap-4 items-center justify-center">
+            <a
+              href="tel:+8801234567890"
+              className="bg-[#E8E7F2] hover:bg-[#D9D8E8] py-2 px-3 cursor-pointer rounded-md transition-colors duration-200 inline-flex items-center"
+            >
+              <MdOutlineCall color="#150e72" size={25} />
+
+            </a>
+
+            <Link
+              to="/register"
+              className="px-5 py-2 bg-[#150e72] text-white font-medium rounded-md hover:bg-[#3a008a] duration-300 transition-all"
+            >
+              লগইন
+            </Link>
           </div>
         </div>
+
       </Container>
     </div>
+
+
+
+
   );
 };
 
