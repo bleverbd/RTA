@@ -24,7 +24,7 @@ const NavItem = () => {
               cn(
                 "duration-300  transition-all hover:text-Primary ",
                 {
-                  "font-bold text-Primary underline underline-offset-4": isActive,
+                  "font-bold text-Primary underline underline-offset-4 decoration-2": isActive,
                 }
               )
             }
@@ -63,7 +63,7 @@ const Navbar = () => {
             </a>
 
             <Link
-              to="/register"
+              to="/auth/register"
               className="px-5 py-2 bg-[#150e72] text-white font-medium rounded-md hover:bg-[#3a008a] duration-300 transition-all"
             >
               লগইন

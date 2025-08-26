@@ -5,7 +5,7 @@ import Navbar from "./share/Navbar";
 
 const MainLayout = () => {
   return (
-    <div className="min-h-screen flex flex-col font-Noto">
+    <div className="min-h-screen flex flex-col  font-Hind">
       <ScrollRestoration />
       <Navbar/>
       <div className="flex-1">

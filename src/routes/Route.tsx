@@ -1,4 +1,5 @@
 import MainLayout from "@/layouts/MainLayout";
+import Register from "@/pages/auth/Register";
 import ErrorPage from "@/pages/error/ErrorPage";
 import AboutUs from "@/pages/user/AboutUs";
 import Books from "@/pages/user/Books";
@@ -30,11 +31,24 @@ export const routes = createBrowserRouter([
         path: "/notice",
         element: <Notice />,
       },
-       {
+      {
         path: "/about-us",
         element: <AboutUs />,
       },
 
+
+    ],
+  },
+
+  {
+    path: "/auth",
+    element: <MainLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "register",
+        element: <Register />,
+      },
 
     ],
   },
