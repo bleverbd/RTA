@@ -9,7 +9,7 @@ const PasswordField = ({...field}) => {
     <div className="relative">
       <Input
         type={isShowPassword ? "text" : "password"}
-      className="bg-[#0A0C10] border-none px-4 py-4 mt-1"
+      className=" px-4 py-4 mt-1"
         placeholder="Password"
         {...field}
       />
