@@ -1,5 +1,6 @@
 import MainLayout from "@/layouts/MainLayout";
 import Register from "@/pages/auth/Register";
+import VerifyOTP from "@/pages/auth/VerifyOTP";
 import ErrorPage from "@/pages/error/ErrorPage";
 import AboutUs from "@/pages/user/AboutUs";
 import Books from "@/pages/user/Books";
@@ -48,6 +49,10 @@ export const routes = createBrowserRouter([
       {
         path: "register",
         element: <Register />,
+      },
+      {
+        path: "verify-otp",
+        element: <VerifyOTP />,
       },
 
     ],

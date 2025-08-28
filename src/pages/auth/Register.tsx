@@ -12,6 +12,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { ImagesProvider } from "@/lib/ImagesProvider";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router";
 
 const formSchema = z.object({
   mobile: z.string().regex(/^01[3-9][0-9]{8}$/, {
@@ -20,6 +21,7 @@ const formSchema = z.object({
 });
 
 const Register = () => {
+   const nagivate=useNavigate();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -33,6 +35,7 @@ const Register = () => {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     console.log("Submitted Values:", values);
     form.reset();
+     nagivate("/auth/verify-otp")
   }
 
   return (
@@ -42,7 +45,7 @@ const Register = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="border-2 border-[#e8eaed] rounded-xl px-5 py-20 flex flex-col justify-center items-center max-w-[900px] mx-auto shadow-xl bg-white"
+         className="border border-gray-200 rounded-2xl px-8 py-12 flex flex-col justify-center items-center max-w-[600px] mx-auto shadow-lg bg-white"
         >
           {/* Logo */}
           <motion.div
@@ -73,7 +76,7 @@ const Register = () => {
           </motion.div>
 
           {/* Form */}
-          <div className="w-7/12 ">
+          <div className="w-full">
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)}>
                 <FormField
